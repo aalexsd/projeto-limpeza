@@ -102,7 +102,7 @@ class _TaskState extends State<Task> {
                         backgroundColor: Colors.pink[100],
                             shape: const CircleBorder(),
                         padding: const EdgeInsets.all(10)),
-                        child: const Text('Limpeeeeeei',
+                        child: const Text('Limpei',
                           style: TextStyle(fontSize: 13)),
                         ),
                     ),
