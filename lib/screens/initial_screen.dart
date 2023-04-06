@@ -23,7 +23,7 @@ class _InitialScreenState extends State<InitialScreen> {
           });}, icon: const Icon(Icons.refresh))
         ],
         title: const Text('Limpeza semanal'),
-        backgroundColor: Colors.pink[100],
+        backgroundColor: Colors.pink[200],
       ),
       body: Padding(
         padding: const EdgeInsets.only(bottom: 80),
