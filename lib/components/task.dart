@@ -25,7 +25,7 @@ class _TaskState extends State<Task> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(5.0),
       child: Stack(
         children: [
           Container(
@@ -52,11 +52,12 @@ class _TaskState extends State<Task> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
+                      height: 120,
+                      width: 100,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4),
                         color: Colors.grey,
                       ),
-                      width: 100,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
                         child: assetOrNetwork()
@@ -72,7 +73,7 @@ class _TaskState extends State<Task> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: 200,
+                          width: 150,
                           child: Text(
                             widget.nome,
                             style: const TextStyle(
@@ -85,8 +86,8 @@ class _TaskState extends State<Task> {
                       ],
                     ),
                     SizedBox(
-                      width: 62,
-                      height: 62,
+                      width: 60,
+                      height: 60,
                       child: ElevatedButton(
                         onLongPress: () {
                           TaskDao().delete(widget.nome);
@@ -102,6 +103,22 @@ class _TaskState extends State<Task> {
                             padding: const EdgeInsets.all(10)),
                         child: const Text('Feito!',
                             style: TextStyle(fontSize: 13)),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            TaskDao().delete(widget.nome);
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
+                            shape: const CircleBorder(),
+                            padding: const EdgeInsets.all(10)),
+                        child: Center(child: const Icon(Icons.delete)),
                       ),
                     ),
                   ],
