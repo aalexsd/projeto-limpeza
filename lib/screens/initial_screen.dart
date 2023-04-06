@@ -17,6 +17,11 @@ class _InitialScreenState extends State<InitialScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(Icons.task_alt_outlined),
+        actions: [
+          IconButton(onPressed: (){setState(() {
+
+          });}, icon: const Icon(Icons.refresh))
+        ],
         title: const Text('Limpeza semanal'),
         backgroundColor: Colors.pink[100],
       ),
@@ -108,7 +113,7 @@ class _InitialScreenState extends State<InitialScreen> {
                 taskContext: context,
               ),
             ),
-          );
+          ).then((value) => setState(() {}));
         },
         backgroundColor: Colors.pink[100],
         child: const Icon(Icons.add),

@@ -1,5 +1,4 @@
 import 'package:clean_project/data/task_dao.dart';
-import 'package:clean_project/data/task_inherited.dart';
 import 'package:flutter/material.dart';
 
 import '../components/task.dart';
