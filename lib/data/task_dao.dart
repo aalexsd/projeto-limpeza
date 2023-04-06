@@ -26,6 +26,14 @@ class TaskDao{
     return toList(result);
   }
 
+  Future<List<Task>> find(String nomeDaTarefa) async {
+    print('Acessando find: ');
+    final Database bancoDeDados = await getDatabase();
+    final List<Map<String, dynamic>> result = await bancoDeDados
+        .query(_tablename, where: '$_name = ?', whereArgs: [nomeDaTarefa]);
+    print('Tarefa encontrada: ${toList(result)}');
+    return toList(result);
+  }
   List<Task> toList(List<Map<String, dynamic>> mapaDeTarefas) {
     print('Convertendo to List: ');
     final List<Task> tarefas = [];
