@@ -30,7 +30,6 @@ class TaskDao{
           where: '$_name = ?', whereArgs: [tarefa.nome]);
     }
   }
-
   Future<List<Task>> findAll() async {
     print('Estamos acessando o findAll: ');
     // abrindo banco de dados
@@ -40,7 +39,6 @@ class TaskDao{
     print('Procurando dados no banco de dados... encontrado: $result');
     return toList(result);
   }
-
   Future<List<Task>> find(String nomeDaTarefa) async {
     print('Acessando find: ');
     final Database bancoDeDados = await getDatabase();
@@ -49,6 +47,13 @@ class TaskDao{
     print('Tarefa encontrada: ${toList(result)}');
     return toList(result);
   }
+  delete(String nomeDaTarefa) async {
+    print('Deletando tarefa');
+    final Database bancoDeDados = await getDatabase();
+    return bancoDeDados
+        .delete(_tablename, where: '$_name = ?', whereArgs: [nomeDaTarefa]);
+  }
+
   List<Task> toList(List<Map<String, dynamic>> mapaDeTarefas) {
     print('Convertendo to List: ');
     final List<Task> tarefas = [];
